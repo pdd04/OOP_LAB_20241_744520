@@ -1,3 +1,4 @@
+//6.3
 import javax.swing.JOptionPane;
 public class Triangle {
     private int n;

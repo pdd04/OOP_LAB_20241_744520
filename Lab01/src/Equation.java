@@ -1,8 +1,8 @@
+//2.2.6
 import javax.swing.JOptionPane;
 public class Equation {
     private String stra, strb, strc;
     private double a, b, c, x, delta;
-    private String stra11, stra12, stra21, stra22, strb1, strb2;
     private double a11, a12, a21, a22, b1, b2, x1, x2;
     private double D, D1, D2;
 
