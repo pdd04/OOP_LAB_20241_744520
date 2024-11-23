@@ -14,12 +14,41 @@ public class Cart {
     }
 
     public void addDigitalVideoDisc(DigitalVideoDisc disc) {
-        this.qtyOrdered++;
         if (this.qtyOrdered == MAX_NUMBER_ORDERED) {
             System.out.println("The cart is almost full");
         }else{
+            this.qtyOrdered++;
             this.itemsOrdered[this.qtyOrdered - 1] = disc;
             System.out.println("The disc has been added");
+        }
+    }
+
+    public void addDigitalVideoDisc(DigitalVideoDisc [] disc) {
+        for(int i = 0; i < disc.length; i++) {
+            if(this.qtyOrdered == MAX_NUMBER_ORDERED) {
+                System.out.println("The cart is almost full");
+            }else{
+                this.qtyOrdered++;
+                this.itemsOrdered[this.qtyOrdered - 1] = disc[i];
+                System.out.println("The disc [" + (i + 1) + "] has been added");
+            }
+        }
+    }
+
+    public void addDigitalVideoDisc(DigitalVideoDisc disc1, DigitalVideoDisc disc2) {
+        if(this.qtyOrdered == MAX_NUMBER_ORDERED) {
+            System.out.println("The cart is almost full");
+        }else if(this.qtyOrdered == MAX_NUMBER_ORDERED - 1) {
+            this.qtyOrdered++;
+            this.itemsOrdered[this.qtyOrdered - 1] = disc1;
+            System.out.println("The disc [" + 1 + "] has been added");
+        }else{
+            this.qtyOrdered++;
+            this.itemsOrdered[this.qtyOrdered - 1] = disc1;
+            System.out.println("The disc [" + 1 + "] has been added");
+            this.qtyOrdered++;
+            this.itemsOrdered[this.qtyOrdered - 1] = disc2;
+            System.out.println("The disc [" + 2 + "] has been added");
         }
     }
 
