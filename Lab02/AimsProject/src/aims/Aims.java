@@ -14,10 +14,15 @@ public class Aims {
         anOrder.addDigitalVideoDisc(dvd2);
 
         DigitalVideoDisc dvd3 = new DigitalVideoDisc("Aladin", "Animation", 18.99f);
-        anOrder.addDigitalVideoDisc(dvd3);
 
         DigitalVideoDisc dvd4 = new DigitalVideoDisc("Howl's Moving Castle", "Animation", "Miyazaki Hayao", 159, 19.95f);
-        anOrder.addDigitalVideoDisc(dvd4);
+        anOrder.addDigitalVideoDisc(dvd4, dvd3);
+
+        DigitalVideoDisc [] listDvd = {
+            new DigitalVideoDisc("Star Wars", "Science Fiction", "George Lucas", 87, 24.95f),
+            new DigitalVideoDisc("Aladin", "Animation", 18.99f)
+        };
+        anOrder.addDigitalVideoDisc(listDvd);
 
         System.out.println("Total Cost is: " + anOrder.totalCost());
 
