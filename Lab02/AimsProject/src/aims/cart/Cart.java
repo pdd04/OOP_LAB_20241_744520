@@ -87,4 +87,56 @@ public class Cart {
             }
         }
     }
+
+    public void print(int searchFor, String search){
+        if(searchFor == 2){
+            int id = Integer.parseInt(search);
+        }
+        int counter = 0;
+
+        System.out.println("****************************CART****************************");
+        System.out.println("Ordered Item:");
+        for (int i = 0; i < this.qtyOrdered; i++) {
+            if(searchFor != 1){
+                if(!search(searchFor, i, search)){
+                    continue;
+                }
+            }
+            counter++;
+            if(itemsOrdered[i].getCost() == - 1){
+                System.out.println((i+1) + ".DVD - " + itemsOrdered[i].getTitle());
+            }else if(itemsOrdered[i].getDirector() == null){
+                System.out.println((i+1) + ".DVD - " + itemsOrdered[i].getTitle() + " - " + itemsOrdered[i].getCategory() + ": " + itemsOrdered[i].getCost());
+            }else if(itemsOrdered[i].getLength() == -1){
+                System.out.println((i+1) + ".DVD - " + itemsOrdered[i].getTitle() + " - " + itemsOrdered[i].getCategory() + " - " + itemsOrdered[i].getDirector() + ": " + itemsOrdered[i].getCost());
+            }else{
+                System.out.println((i+1) + ".DVD - " + itemsOrdered[i].getTitle() + " - " + itemsOrdered[i].getCategory() + " - " + itemsOrdered[i].getDirector() + " - " + itemsOrdered[i].getLength() + ": " + itemsOrdered[i].getCost());
+            }
+        }
+        if(counter == 0){
+            System.out.println("No found");
+        }
+        if(searchFor == 1){
+            System.out.println("Total Cost: " + totalCost());
+        }
+        System.out.println("************************************************************");
+
+    }
+
+    public boolean search(int searchFor,int i, String search){
+        if(searchFor == 2){
+            int id = Integer.parseInt(search);
+            if(itemsOrdered[i].getId() == id){
+                return true;
+            }
+            return false;
+        }else{
+            if(itemsOrdered[i].getTitle().equals(search)){
+                return true;
+            }
+            return false;
+        }
+    }
+
+
 }
