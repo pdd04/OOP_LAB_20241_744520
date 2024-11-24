@@ -1,9 +1,9 @@
-package aims.store;
+package hust.soict.hedspi.aims.store;
 
-import aims.disc.DigitalVideoDisc;
+import hust.soict.hedspi.aims.disc.DigitalVideoDisc;
 
 public class Store {
-    private DigitalVideoDisc [] itemsInStore = new DigitalVideoDisc[100];
+    private DigitalVideoDisc[] itemsInStore = new DigitalVideoDisc[100];
     private static int qtyDvd = 0;
 
     public void addDVD(DigitalVideoDisc dvd) {
