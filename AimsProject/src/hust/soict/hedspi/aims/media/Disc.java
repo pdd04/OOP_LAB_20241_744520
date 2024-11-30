@@ -25,4 +25,6 @@ public class Disc extends Media {
         return length;
     }
 
+    public void setLength(int length) {}
+
 }

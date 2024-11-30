@@ -16,4 +16,8 @@ public class Track {
     public int getLength() {
         return length;
     }
+
+    public void setLength(int length) {
+        this.length = length;
+    }
 }
