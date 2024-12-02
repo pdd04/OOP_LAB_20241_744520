@@ -33,6 +33,63 @@ public class Cart {
         return total;
     }
 
+    public void displayCart(){
+        int i = 0;
+        for (Media item : itemsOrdered) {
+                System.out.println("dvd" + (i + 1) + "{ ");
+                System.out.println("Title: " + item.getTitle() + ";");
+                System.out.println("Category: " + item.getCategory() + ";");
+                System.out.println("Cost: " + item.getCost() + ";");
+                System.out.println("}");
+                i++;
+        }
+    }
+
+    public void print(int searchFor, String search){
+        if(searchFor == 2){
+            int id = Integer.parseInt(search);
+        }
+        int counter = -1;
+        System.out.println("****************************CART****************************");
+        System.out.println("Ordered Item:");
+        int i = 0;
+        for (Media item : itemsOrdered) {
+            i++;
+            if(searchFor != 1){
+                if(!search(searchFor, item, search)){
+                    continue;
+                }
+            }
+            counter++;
+            if(item.getCost() == - 1){
+                System.out.println((i+1) + ".DVD - " + item.getTitle());
+            }else{
+                System.out.println((i+1) + ".DVD - " + item.getTitle() + " - " + item.getCategory() +  ": " + item.getCost());
+            }
+        }
+        if(counter == 0){
+            System.out.println("No found");
+        }
+        if(searchFor == 1){
+            System.out.println("Total Cost: " + totalCost());
+        }
+        System.out.println("************************************************************");
+    }
+    public boolean search(int searchFor,Media item, String search){
+        if(searchFor == 2){
+            int id = Integer.parseInt(search);
+            if(item.getId() == id){
+                return true;
+            }
+            return false;
+        }else{
+            if(item.getTitle().equals(search)){
+                return true;
+            }
+            return false;
+        }
+    }
+
 
 
 
