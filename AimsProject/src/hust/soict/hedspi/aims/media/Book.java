@@ -7,8 +7,8 @@ public class Book extends Media {
 
     private List<String> author = new ArrayList<String>();
 
-    public Book(int id, String title, String category, float cost, List<String> author) {
-        super(id, title, category, cost);
+    public Book( String title, String category, float cost, List<String> author) {
+        super(title, category, cost);
         this.author = author;
     }
 
@@ -33,5 +33,12 @@ public class Book extends Media {
          }else{
              System.out.println("Author does not exist");
          }
+    }
+
+    @Override
+    public String toString() {
+        return super.toString() +
+                ", authors=" + getAuthor() +
+                '}';
     }
 }
