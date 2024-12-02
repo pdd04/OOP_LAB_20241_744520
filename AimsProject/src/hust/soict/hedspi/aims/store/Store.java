@@ -1,33 +1,30 @@
 package hust.soict.hedspi.aims.store;
 
 import hust.soict.hedspi.aims.media.DigitalVideoDisc;
+import hust.soict.hedspi.aims.media.Media;
+
+import java.util.ArrayList;
 
 public class Store {
-    private DigitalVideoDisc[] itemsInStore = new DigitalVideoDisc[100];
-    private static int qtyDvd = 0;
+    private ArrayList<Media> itemsOrdered = new ArrayList<Media>();
 
-    public void addDVD(DigitalVideoDisc dvd) {
-        for (int i = 0; i < qtyDvd; i++) {
-            if (itemsInStore[i].getTitle() == dvd.getTitle()) {
+    public void addMedia(DigitalVideoDisc dvd) {
+        for (Media item : itemsOrdered) {
+            if (item.getTitle() == dvd.getTitle()) {
                 System.out.println("DVD already exists!");
                 return;
             }
         }
-        itemsInStore[qtyDvd] = dvd;
-        this.qtyDvd++;
+        itemsOrdered.add(dvd);
         System.out.println("The disc has been added");
 
 
     }
 
-    public void removeDVD(DigitalVideoDisc dvd) {
-        for (int i = 0; i < qtyDvd; i++) {
-            if (itemsInStore[i].getTitle().equals(dvd.getTitle())) {
-                for (int j = i; j < qtyDvd - 1; j++) {
-                    itemsInStore[j] = itemsInStore[j + 1];
-                }
-                itemsInStore[qtyDvd - 1] = null; //
-                qtyDvd--; //
+    public void removeMedia(DigitalVideoDisc dvd) {
+        for (Media item : itemsOrdered) {
+            if (item.getTitle().equals(dvd.getTitle())) {
+                itemsOrdered.remove(dvd);
                 System.out.println("The disc has been removed");
                 return;
             }
@@ -38,15 +35,13 @@ public class Store {
     public void print(){
         System.out.println("****************************CART****************************");
         System.out.println("Ordered Item:");
-        for (int i = 0; i < qtyDvd; i++) {
-            if(itemsInStore[i].getCost() == - 1){
-                System.out.println((i+1) + ".DVD - " + itemsInStore[i].getTitle());
-            }else if(itemsInStore[i].getDirector() == null){
-                System.out.println((i+1) + ".DVD - " + itemsInStore[i].getTitle() + " - " + itemsInStore[i].getCategory() + ": " + itemsInStore[i].getCost());
-            }else if(itemsInStore[i].getLength() == -1){
-                System.out.println((i+1) + ".DVD - " + itemsInStore[i].getTitle() + " - " + itemsInStore[i].getCategory() + " - " + itemsInStore[i].getDirector() + ": " + itemsInStore[i].getCost());
+        int i = 0;
+        for (Media item : itemsOrdered) {
+            i++;
+            if(item.getCost() == - 1){
+                System.out.println((i+1) + ".DVD - " + item.getTitle());
             }else{
-                System.out.println((i+1) + ".DVD - " + itemsInStore[i].getTitle() + " - " + itemsInStore[i].getCategory() + " - " + itemsInStore[i].getDirector() + " - " + itemsInStore[i].getLength() + ": " + itemsInStore[i].getCost());
+                System.out.println((i+1) + ".DVD - " + item.getTitle() + " - " + item.getCategory() +  ": " + item.getCost());
             }
         }
         System.out.println("************************************************************");
