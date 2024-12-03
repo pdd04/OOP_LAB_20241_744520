@@ -35,18 +35,6 @@ public class Cart {
         return total;
     }
 
-    public void displayCart(){
-        int i = 0;
-        for (Media item : itemsOrdered) {
-                System.out.println("dvd" + (i + 1) + "{ ");
-                System.out.println("Title: " + item.getTitle() + ";");
-                System.out.println("Category: " + item.getCategory() + ";");
-                System.out.println("Cost: " + item.getCost() + ";");
-                System.out.println("}");
-                i++;
-        }
-    }
-
     public Media searchByTitle(String title) {
         for (Media media : itemsOrdered) {
             if (media.getTitle().equals(title))

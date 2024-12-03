@@ -75,30 +75,30 @@ public abstract class Media {
         return Objects.equals(title, media.title);
     }
 
-//    public static void main (String[] args) {
-//        List<Media> medias = new ArrayList<>();
-//        List<Track> tracks = new ArrayList<>();
-//
-//        medias.add(new CompactDisc("abc", "song", "remix", 12, "bca",  tracks));
-//        medias.add(new DigitalVideoDisc("abc", "phim hai", 2));
-//        medias.add(new Book("giai tich","toan cao cap", 2, new ArrayList<String>()));
-//
-//        for (Media media : medias) {
-//            System.out.println(media.toString());
-//        }
-//
-//        System.out.println("sort by title");
-//        Collections.sort(medias, COMPARE_BY_TITLE_COST);
-//        for (Media media : medias) {
-//            System.out.println(media.toString());
-//        }
-//
-//        System.out.println("sort by cost");
-//        Collections.sort(medias, COMPARE_BY_COST_TITLE);
-//        for (Media media : medias) {
-//            System.out.println(media.toString());
-//        }
-//
-//
-//    }
+
+
+    /*public static void main (String[] args) {
+        List<Media> medias = new ArrayList<>();
+        List<Track> tracks = new ArrayList<>();
+
+        medias.add(new CompactDisc("abc", "song", "remix", 12, "bca",  tracks));
+        medias.add(new DigitalVideoDisc("abc", "phim hai", 2));
+        medias.add(new Book("giai tich","toan cao cap", 2, new ArrayList<String>()));
+
+        for (Media media : medias) {
+            System.out.println(media.toString());
+        }
+
+        System.out.println("sort by title");
+        Collections.sort(medias, COMPARE_BY_TITLE_COST);
+        for (Media media : medias) {
+            System.out.println(media.toString());
+        }
+
+        System.out.println("sort by cost");
+        Collections.sort(medias, COMPARE_BY_COST_TITLE);
+        for (Media media : medias) {
+            System.out.println(media.toString());
+        }
+    }*/
 }
