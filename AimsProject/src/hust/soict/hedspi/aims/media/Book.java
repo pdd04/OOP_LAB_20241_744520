@@ -10,6 +10,14 @@ public class Book extends Media {
     public Book( String title, String category, float cost, List<String> author) {
         super(title, category, cost);
         this.author = author;
+        nb++;
+        setId(nb);
+    }
+
+    public Book( String title, String category, float cost) {
+        super(title, category, cost);
+        nb++;
+        setId(nb);
     }
 
     public List<String> getAuthor() {
@@ -37,8 +45,10 @@ public class Book extends Media {
 
     @Override
     public String toString() {
-        return super.toString() +
-                ", authors=" + getAuthor() +
-                '}';
+        return "id = " + getId() +
+                " - title = '" + getTitle() + '\'' +
+                " - category = '" + getCategory() + '\'' +
+                " - (List of) authors = " + author +
+                " - cost = " + getCost() ;
     }
 }

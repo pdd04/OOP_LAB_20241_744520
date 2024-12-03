@@ -4,6 +4,8 @@ package hust.soict.hedspi.aims.cart;
 import hust.soict.hedspi.aims.media.Media;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Iterator;
 
 public class Cart {
 
@@ -45,49 +47,52 @@ public class Cart {
         }
     }
 
-    public void print(int searchFor, String search){
-        if(searchFor == 2){
-            int id = Integer.parseInt(search);
+    public Media searchByTitle(String title) {
+        for (Media media : itemsOrdered) {
+            if (media.getTitle().equals(title))
+                return media;
         }
-        int counter = -1;
-        System.out.println("****************************CART****************************");
-        System.out.println("Ordered Item:");
-        int i = 0;
-        for (Media item : itemsOrdered) {
-            i++;
-            if(searchFor != 1){
-                if(!search(searchFor, item, search)){
-                    continue;
-                }
-            }
-            counter++;
-            if(item.getCost() == - 1){
-                System.out.println((i+1) + ".DVD - " + item.getTitle());
-            }else{
-                System.out.println((i+1) + ".DVD - " + item.getTitle() + " - " + item.getCategory() +  ": " + item.getCost());
-            }
-        }
-        if(counter == 0){
-            System.out.println("No found");
-        }
-        if(searchFor == 1){
-            System.out.println("Total Cost: " + totalCost());
-        }
-        System.out.println("************************************************************");
+
+        return null;
     }
-    public boolean search(int searchFor,Media item, String search){
-        if(searchFor == 2){
-            int id = Integer.parseInt(search);
-            if(item.getId() == id){
-                return true;
-            }
-            return false;
-        }else{
-            if(item.getTitle().equals(search)){
-                return true;
-            }
-            return false;
+
+    public Media searchById(int id) {
+        for (Media media : itemsOrdered) {
+            if (media.getId() == id)
+                return media;
         }
+
+        return null;
+    }
+
+    public void sortByTitle() {
+        Collections.sort(itemsOrdered, Media.COMPARE_BY_TITLE_COST);
+        Iterator<Media> iterator = itemsOrdered.iterator();
+
+        while (iterator.hasNext()) {
+            System.out.println((iterator.next()).toString());
+        }
+    }
+
+    public void sortByCost() {
+        Collections.sort(itemsOrdered, Media.COMPARE_BY_COST_TITLE);
+        Iterator<Media> iterator = itemsOrdered.iterator();
+
+        while (iterator.hasNext()) System.out.println((iterator.next()).toString());
+
+    }
+    public void empty() {
+        itemsOrdered.clear();
+    }
+
+    public void print() {
+        System.out.println("***********************CART***********************");
+        System.out.println("Ordered Items:");
+        for (Media media : itemsOrdered) {
+            System.out.println(media.toString());
+        }
+        System.out.println("Total cost: " + totalCost() + "$");
+        System.out.println("**************************************************");
     }
 
 

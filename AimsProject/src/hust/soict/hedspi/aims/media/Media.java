@@ -7,6 +7,7 @@ public abstract class Media {
     private String title;
     private String category;
     private float cost = -1;
+    protected static int nb =0;
     public static final Comparator<Media> COMPARE_BY_TITLE_COST = new MediaComparatorByTitleCost();
     public static final Comparator<Media> COMPARE_BY_COST_TITLE = new MediaComparatorByCostTitle();
 
@@ -57,6 +58,7 @@ public abstract class Media {
         this.cost = cost;
     }
 
+
     @Override
     public String toString() {
         return "Media{id=" + getId() +
@@ -72,30 +74,31 @@ public abstract class Media {
         Media media = (Media) o;
         return Objects.equals(title, media.title);
     }
-    public static void main (String[] args) {
-        List<Media> medias = new ArrayList<>();
-        List<Track> tracks = new ArrayList<>();
 
-        medias.add(new CompactDisc("abc", "song", "remix", 12, "bca",  tracks));
-        medias.add(new DigitalVideoDisc("abc", "phim hai", 2));
-        medias.add(new Book("giai tich","toan cao cap", 2, new ArrayList<String>()));
-
-        for (Media media : medias) {
-            System.out.println(media.toString());
-        }
-
-        System.out.println("sort by title");
-        Collections.sort(medias, COMPARE_BY_TITLE_COST);
-        for (Media media : medias) {
-            System.out.println(media.toString());
-        }
-
-        System.out.println("sort by cost");
-        Collections.sort(medias, COMPARE_BY_COST_TITLE);
-        for (Media media : medias) {
-            System.out.println(media.toString());
-        }
-
-
-    }
+//    public static void main (String[] args) {
+//        List<Media> medias = new ArrayList<>();
+//        List<Track> tracks = new ArrayList<>();
+//
+//        medias.add(new CompactDisc("abc", "song", "remix", 12, "bca",  tracks));
+//        medias.add(new DigitalVideoDisc("abc", "phim hai", 2));
+//        medias.add(new Book("giai tich","toan cao cap", 2, new ArrayList<String>()));
+//
+//        for (Media media : medias) {
+//            System.out.println(media.toString());
+//        }
+//
+//        System.out.println("sort by title");
+//        Collections.sort(medias, COMPARE_BY_TITLE_COST);
+//        for (Media media : medias) {
+//            System.out.println(media.toString());
+//        }
+//
+//        System.out.println("sort by cost");
+//        Collections.sort(medias, COMPARE_BY_COST_TITLE);
+//        for (Media media : medias) {
+//            System.out.println(media.toString());
+//        }
+//
+//
+//    }
 }
