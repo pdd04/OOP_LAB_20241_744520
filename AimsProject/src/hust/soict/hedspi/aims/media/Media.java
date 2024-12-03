@@ -1,14 +1,14 @@
 package hust.soict.hedspi.aims.media;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
+import java.util.*;
 
 public abstract class Media {
     private int id;
     private String title;
     private String category;
     private float cost = -1;
+    public static final Comparator<Media> COMPARE_BY_TITLE_COST = new MediaComparatorByTitleCost();
+    public static final Comparator<Media> COMPARE_BY_COST_TITLE = new MediaComparatorByCostTitle();
 
     public Media() {}
 
@@ -83,5 +83,19 @@ public abstract class Media {
         for (Media media : medias) {
             System.out.println(media.toString());
         }
+
+        System.out.println("sort by title");
+        Collections.sort(medias, COMPARE_BY_TITLE_COST);
+        for (Media media : medias) {
+            System.out.println(media.toString());
+        }
+
+        System.out.println("sort by cost");
+        Collections.sort(medias, COMPARE_BY_COST_TITLE);
+        for (Media media : medias) {
+            System.out.println(media.toString());
+        }
+
+
     }
 }
