@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/GUIProject/GUIProject.iml" filepath="$PROJECT_DIR$/GUIProject/GUIProject.iml" />
       <module fileurl="file://$PROJECT_DIR$/OtherProjects/Lab01/Lab01.iml" filepath="$PROJECT_DIR$/OtherProjects/Lab01/Lab01.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/OOP_LAB_20241_744520.iml" filepath="$PROJECT_DIR$/.idea/OOP_LAB_20241_744520.iml" />
     </modules>
