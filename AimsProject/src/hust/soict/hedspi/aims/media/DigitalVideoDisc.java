@@ -40,5 +40,5 @@ public class DigitalVideoDisc extends Disc implements Playable {
                 " - director = '" + getDirector() + '\'' +
                 " - cost = " + getCost() ;
     }
-    
+
 }
