@@ -20,7 +20,6 @@ public class Store {
         itemsOrdered.add(media);
         System.out.println("The disc has been added");
 
-
     }
 
     public void removeMedia(Media media) {
@@ -64,5 +63,9 @@ public class Store {
         }
 
         return null;
+    }
+
+    public ArrayList<Media> getItemsInStore(){
+        return itemsOrdered;
     }
 }
