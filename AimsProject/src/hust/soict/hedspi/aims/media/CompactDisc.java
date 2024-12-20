@@ -59,10 +59,12 @@ public class CompactDisc extends Disc implements Playable {
         super.setLength(length);
     }
 
-    public void play(){
+    public String play(){
+        String play = "";
         for(Track track : tracks){
-            track.play();
+            play = play + "\n" + track.play();
         }
+        return play;
     }
 
     @Override

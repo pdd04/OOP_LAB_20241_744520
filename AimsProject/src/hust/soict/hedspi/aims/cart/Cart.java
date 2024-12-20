@@ -2,14 +2,16 @@ package hust.soict.hedspi.aims.cart;
 
 
 import hust.soict.hedspi.aims.media.Media;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 
-import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Iterator;
 
+
 public class Cart {
 
-    private ArrayList<Media> itemsOrdered = new ArrayList<Media>();
+    private ObservableList<Media> itemsOrdered = FXCollections.observableArrayList();
 
     public void addMedia(Media item) {
         if(!itemsOrdered.contains(item)) {
@@ -82,6 +84,15 @@ public class Cart {
         System.out.println("Total cost: " + totalCost() + "$");
         System.out.println("**************************************************");
     }
+
+    public ObservableList<Media> getItemsOrdered() {
+        return itemsOrdered;
+    }
+
+    public void placeOrder(){
+        itemsOrdered.clear();
+    }
+
 
 
 
